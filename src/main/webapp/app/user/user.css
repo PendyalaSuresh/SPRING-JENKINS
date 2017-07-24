@@ -1,0 +1,17 @@
+@CHARSET "ISO-8859-1";
+.center {
+  	margin: auto;
+    width: 50%;
+    padding: 10px;
+    text-align:center;
+}
+.applistHeding{
+	background-color: #8daad1;
+}
+.applistBody{
+	background-color: #d8e3ec;
+}
+.with-margin {
+  margin-bottom: 5px;
+}
+select { width: 10.5em }

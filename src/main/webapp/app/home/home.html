@@ -1,0 +1,88 @@
+
+<form ng-submit="vm.updateValue()">
+
+	<div class="container nimsubheading"><h4>NIM user license management Home Page</h4></div>
+	<br>
+	
+	<div class="container " >
+		<div class="row with-margin">
+			<div class="col-sm-6" >Select Customer :
+			</div>
+			<div class="col-sm-6" >
+				<select name="select_customer" ng-model="vm.userLicense" 
+					ng-options="user as user.rdbName for user in vm.userLicenses" ng-change="vm.updateCount(vm.userLicense)">
+				</select> 
+			</div>
+		</div>
+	
+		<div class="row with-margin">
+			<div class="col-sm-6" >
+				Configure Maximum License Number:
+			</div>
+			<div class="col-sm-6" >
+				<input name="txt_maxlicencenumber" type="number" pattern="[0-9]" maxlength="4" ng-model="vm.userLicense.maxLicense"/>
+				 <!-- <%if(!isadm){ %>disabled<%} %>  --> 
+				<input name="btn_submitmaxlicense" type="button" value="Submit"  ng-click="vm.updateMaxLicense(vm.userLicense)" /> 
+				<!-- <%if(!isadm){ %>disabled<%} %> -->			
+			</div>
+		</div>
+	</div>
+	
+	<div class="container mr-2" >
+		<div class="row nimsubheading"><b>License usage details:</b></div>
+		<div class="row applistHeding with-margin">
+			<div class="col-sm-4 "><span class="text">Sl. No.</span></div>
+			<div class="col-sm-4 "><span class="text">License Name</span></div>
+			<div class="col-sm-4 "><span class="text">Used License</span></div>
+		</div>
+		<div class="row applistBody with-margin" 
+			ng-repeat="license in vm.userLicense.licenses">
+			<div class="col-sm-4 " > {{$index + 1}} </div>
+			<div class="col-sm-4 " > {{license.name}} </div>
+			<div class="col-sm-4 " > {{license.usedLicense}} </div>
+		</div>
+	 </div> 
+	<div class="container ">
+		<div class="row with-margin">
+			<div class="col-sm-6" >Save login data history days: </div>
+			<div class="col-sm-6" > 
+				<input name="txt_loginhistory" type="number" pattern="[0-9]"  maxlength="3" 
+				ng-model="vm.userLicense.loginHistoryDays"/>
+			 	<!-- <%if(!isadm){ %>disabled<%} %>  --> 
+				<input name="btn_submitloginhistory" type="button" value="Save" 
+				ng-click="vm.updateLoginHistory(vm.userLicense)" /> 
+				<!-- <%if(!isadm){ %>disabled<%} %> -->		
+			</div>	
+		</div>
+		<div class="row with-margin">
+			<div class="col-sm-6" >Maximum Available License: </div>
+			<div class="col-sm-6" > {{ vm.maxAvailablelicense }} </div>
+		</div>
+		<div class="row with-margin">
+			<div class="col-sm-6" >Total Used License Count: </div>
+			<div class="col-sm-6" > {{ vm.licenseCount }}  </div>
+		</div>
+		<div class="row with-margin">
+			<div class="col-sm-6" >Maximum capped user count: </div>
+			<div class="col-sm-6" > <input name="txt_maxcap" type="number" pattern="[0-9]"  maxlength="3" 
+				ng-model="vm.maxCap" disabled/>  </div>
+		</div>
+	</div>
+	<div class="container">
+		<div class="row with-margin">
+			<div class="col-sm-6" > <a class="btn btn-default" ui-sref="loginUsers" href="">View all users login data</a> </div>
+			<div class="col-sm-6" > <a class="btn btn-default" href=""  onclick="Export()">Export license usage details</a></div>
+		</div>
+	</div>
+	
+	
+	
+	<div class="container" align="center">
+		<div class="row">
+			<div class="col-sm-4" >
+				
+		 	</div>
+		</div>
+	</div>
+	
+</form>

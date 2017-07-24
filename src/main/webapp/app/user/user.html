@@ -1,0 +1,24 @@
+
+
+	<br>
+	
+	<div class="container center">
+		<div class="row applistHeding with-margin">
+			<div class="col-sm-3 "><span class="text">S.No</span></div>
+			<div class="col-sm-3 "><span class="text">User Name</span></div>
+			<div class="col-sm-3 "><span class="text">Logged In Time</span></div>
+			<div class="col-sm-3 "><span class="text">Logged Out Time</span></div>
+		</div>
+		<div ng-repeat="user in vm.loggedInUsers" class="row applistBody with-margin">
+			<div class="col-sm-3 " > {{$index }}</div>
+			<div class="col-sm-3 " > {{user.name}}</div>
+			<div class="col-sm-3 " > {{user.loggedInTime }}  </div>
+			<div class="col-sm-3 " > {{user.loggedOutTime }} </div>
+		</div>
+	 </div> 
+	
+	<div class="container center">
+		<div class="row with-margin">
+			<div class="col-sm-12" ><a class="btn btn-default" href="" ui-sref="home">BACK</a></div>
+		</div>
+	</div>

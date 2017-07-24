@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>NULM Home Page</title>
+<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="app/home/home.css">
+
+</head>
+<body ng-app="nulmApp" ngStrictDi >
+
+	<div class="container heading">
+	<div class="row">
+		<div class="col-sm-12" align="center">
+			NIM User License Management
+		</div>
+	</div>
+</div>
+	
+	<div ui-view="header" ng-cloak></div>
+
+	<div class="container">
+	    <div ui-view="content">
+	        <!-- Angular views -->
+	    </div>
+	</div>
+
+	<script src="components/jquery/dist/jquery.js"></script>
+	<script src="components/angular/angular.js"></script>	
+	<script src="components/json3/lib/json3.js"></script>
+	<script src="components/angular-resource/angular-resource.js"></script>
+	<script src="components/bootstrap/tether.min.js"></script>
+	<script src="components/bootstrap/bootstrap.min.js"></script>
+	<script src="components/angular-translate/angular-translate.js"></script>
+	<script src="components/angular-ui-router/release/angular-ui-router.js"></script>
+
+	<script src="app/app.module.js"></script>
+	<script src="app/entity.state.js"></script>
+	
+	<script src="app/blocks/handlers/translation.handler.js"></script>
+	<script src="app/blocks/handlers/state.handler.js"></script> 
+	<script src="app/blocks/config/http.config.js"></script> 
+
+
+	<script src="app/home/home.service.js"></script>
+	<script src="app/home/home.state.js"></script>
+	<script src="app/home/home.controller.js"></script>
+	
+	<script src="app/user/user.state.js"></script>
+	<script src="app/user/user.controller.js"></script>
+	
+	<script src="app/layouts/error/error.state.js"></script>
+</body>
+</html>

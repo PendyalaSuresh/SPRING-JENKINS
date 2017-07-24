@@ -1,0 +1,420 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>com.ericsson</groupId>
+	<artifactId>nulm</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>war</packaging>
+
+	<name>nulm</name>
+	<description>Spring Project for NIM User License Management</description>
+
+	<prerequisites>
+		<maven>3.0.0</maven>
+	</prerequisites>
+	<properties>
+		<start-class>com.ericsson.nulm.Application</start-class>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+		<java-version>1.8</java-version>
+		<org.springframework-version>4.3.0.RELEASE</org.springframework-version>
+		<maven.compiler.source>1.8</maven.compiler.source>
+		<maven.compiler.target>1.8</maven.compiler.target>
+	</properties>
+	<!-- <parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>1.4.1.RELEASE</version>
+		<relativePath /> lookup parent from repository
+	</parent> -->
+	<dependencies>
+		<!-- https://mvnrepository.com/artifact/org.springframework/spring-web -->
+		 <dependency>
+		    <groupId>org.springframework</groupId>
+		    <artifactId>spring-web</artifactId>
+		    <version>${org.springframework-version}</version>
+		</dependency>
+	
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-webmvc</artifactId>
+			<version>${org.springframework-version}</version>
+		</dependency>
+	<!--	https://mvnrepository.com/artifact/org.springframework/spring-context
+		<dependency>
+		    <groupId>org.springframework</groupId>
+		    <artifactId>spring-context</artifactId>
+			<version>${org.springframework-version}</version>
+		</dependency> -->
+		
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>javax.servlet-api</artifactId>
+			<version>3.0.1</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>jstl</artifactId>
+			<version>1.2</version>
+		</dependency>
+		<dependency>
+			<groupId>com.sun.faces</groupId>
+			<artifactId>jsf-api</artifactId>
+			<version>2.1.0</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/log4j/log4j -->
+		<dependency>
+		    <groupId>log4j</groupId>
+		    <artifactId>log4j</artifactId>
+		    <version>1.2.17</version>
+		</dependency>
+		
+		<!-- <dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-databind</artifactId>
+			<version>2.2.2</version>
+		</dependency> -->
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-annotations</artifactId>
+			<version>2.2.2</version>
+		</dependency>
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-core</artifactId>
+			<version>2.2.2</version>
+		</dependency>
+
+	
+	    <dependency>
+				<groupId>org.hibernate</groupId>
+				<artifactId>hibernate-core</artifactId>
+				<version>4.0.1.Final</version>
+			</dependency>
+	    <dependency>
+				<groupId>org.hibernate.javax.persistence</groupId>
+				<artifactId>hibernate-jpa-2.1-api</artifactId>
+				<version>1.0.0.Final</version>
+			</dependency>
+	    <dependency>
+				<groupId>org.hibernate.common</groupId>
+				<artifactId>hibernate-commons-annotations</artifactId>
+				<version>4.0.1.Final</version>
+		</dependency>
+
+
+		<dependency>
+			<groupId>com.oracle.weblogic</groupId>
+			<artifactId>wlfullclient</artifactId>
+			<version>12.1.3</version>
+		</dependency>
+		<dependency>
+			<groupId>com.oracle</groupId>
+			<artifactId>ojdbc7</artifactId>
+			<version>12.1.0</version>
+		</dependency>
+      <dependency>
+            <groupId>javax.ws.rs</groupId>
+            <artifactId>javax.ws.rs-api</artifactId>
+            <version>2.0</version>
+            <scope>provided</scope>
+        </dependency>        
+        <dependency> 
+            <groupId>org.eclipse.persistence</groupId> 
+            <artifactId>javax.persistence</artifactId> 
+            <version>2.1.0</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>javax.websocket</groupId>
+            <artifactId>javax.websocket-api</artifactId>
+            <version>1.0</version>
+            <type>jar</type>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>javax.json</groupId>
+            <artifactId>javax.json-api</artifactId>
+            <version>1.0</version>
+            <scope>provided</scope>
+        </dependency>        
+        <dependency>
+            <groupId>javax</groupId>
+            <artifactId>javaee-api</artifactId>
+            <version>6.0</version>
+            <scope>provided</scope>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/com.sun.jersey.contribs/jersey-spring -->
+		<dependency>
+		    <groupId>com.sun.jersey.contribs</groupId>
+		    <artifactId>jersey-spring</artifactId>
+		    <version>1.17</version>
+		    	
+		    <exclusions>
+		    	 <exclusion>
+				    <groupId>org.springframework</groupId>
+				    <artifactId>spring-web</artifactId>
+				</exclusion>
+	
+				<exclusion>
+					<groupId>org.springframework</groupId>
+					<artifactId>spring-webmvc</artifactId>
+				</exclusion>
+				 <exclusion>
+					<groupId>org.springframework</groupId>
+					<artifactId>spring-core</artifactId>
+				</exclusion>
+ 				<exclusion>
+					<groupId>org.springframework</groupId>
+					<artifactId>spring-beans</artifactId>
+				</exclusion>
+ 				<exclusion>
+					<groupId>org.springframework</groupId>
+					<artifactId>spring-context</artifactId>
+				</exclusion>
+ 				<exclusion>
+					<groupId>org.springframework</groupId>
+					<artifactId>spring-aop</artifactId>
+				</exclusion>
+		    </exclusions>
+		</dependency>
+        
+       <!--  <dependency>
+		    <groupId>com.ericsson.granite.oss.core</groupId>
+		    <artifactId>oss-core-framework-mt-client-stubs</artifactId>
+		    <version>16.2</version>
+		   </dependency>  -->
+		<dependency>
+		    <groupId>oss-core-fieldEngineer-mt-utility</groupId>
+		    <artifactId>oss-core-fieldEngineer-mt-utility</artifactId>
+		    <version>16.1</version>
+		</dependency>
+		<dependency>
+		    <groupId>oss-core-fieldEngineer-mt-client-stubs</groupId>
+		    <artifactId>oss-core-fieldEngineer-mt-client-stubs</artifactId>
+		    <version>16.1</version>
+		</dependency>
+		<dependency>
+    		<groupId>com.ericsson.granite.core.admin</groupId>
+    		<artifactId>admin-common</artifactId>
+    		<version>16.1</version>
+		</dependency>
+		<dependency>
+    		<groupId>oss.core.admin.mt.client.stubs</groupId>
+    		<artifactId>oss-core-admin-mt-client-stubs</artifactId>
+  		  <version>16.2</version>
+		</dependency>
+		<!-- <dependency>
+   			<groupId>oss.core.framework.ui</groupId>
+    		<artifactId>oss-core-framework-ui</artifactId>
+    		<version>16.1</version>
+		</dependency> -->
+      <dependency>
+			<groupId>commons-lang</groupId>
+			<artifactId>commons-lang</artifactId>
+			<version>2.1</version>
+		</dependency>
+		<dependency>
+    		<groupId>com.ericsson.granite.common</groupId>
+    		<artifactId>common-opi</artifactId>
+    		<version>16.1</version>
+		</dependency>
+		<dependency>
+			<groupId>com.ericsson.granite.sdk</groupId>
+		    <artifactId>granite-sdk-lib</artifactId>
+		    <version>16.2</version>
+		</dependency>
+		<dependency>
+			<groupId>com.ericsson.granite.core</groupId>
+		    <artifactId>core-platform-lib</artifactId>
+		    <version>16.2</version>
+		</dependency>
+		<dependency>
+			<groupId>com.ericsson.granite.oss.core</groupId>
+			<artifactId>oss-core-inventory-mt-client-stubs</artifactId>
+			<version>16.2</version>
+		</dependency>
+		<dependency>
+    		<groupId>com.ericsson.granite.oss.core</groupId>
+    		<artifactId>oss-core-admin-mt-utility</artifactId>
+    		<version>16.2</version>
+		</dependency>
+		<dependency>
+			<groupId>com.ericsson.granite.oss.core</groupId>
+			<artifactId>oss-core-framework-mt-utility</artifactId>
+			<version>16.2</version>
+		</dependency>
+		<dependency>
+			<groupId>com.ericsson.granite.oss.core</groupId>
+			<artifactId>oss-core-inventory-mt-utility</artifactId>
+			<version>16.2</version>
+		</dependency>
+		<dependency>
+			<groupId>com.ericsson.granite.asi</groupId>
+		    <artifactId>asi</artifactId>
+		    <version>16.2</version>
+		</dependency><!-- 
+		<dependency>
+		    <groupId>com.ericsson.granite.oss.core</groupId>
+		    <artifactId>oss-core-framework-mt-adv-ejb-weblogic</artifactId>
+		    <version>16.2</version>
+		</dependency> -->
+		<dependency>
+		    <groupId>com.ericsson.granite.core</groupId>
+		    <artifactId>core-services-utility</artifactId>
+		    <version>16.2</version>
+		</dependency>
+	</dependencies>
+
+	<build>
+        <finalName>nulm</finalName>
+        <testResources>
+            <testResource>
+                <directory>src/test/resources</directory>
+            </testResource>
+            <testResource>
+                <directory>src/main/webapp</directory>
+            </testResource>
+        </testResources>
+        <plugins>
+            <plugin>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-war-plugin</artifactId>
+                <version>2.4</version>
+                <configuration>
+                    <failOnMissingWebXml>false</failOnMissingWebXml>
+                    <warName>nulm</warName>
+                </configuration>
+            </plugin>
+            <plugin>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <configuration>
+                    <skipTests>true</skipTests>
+                </configuration>
+            </plugin>
+            <plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>truezip-maven-plugin</artifactId>
+				<version>1.2</version>
+				<executions>
+					<execution>
+						<id>remove-a-file oss-core-fieldEngineer-mt-utility-16.1.jar</id>
+						<goals>
+							<goal>remove</goal>
+						</goals>
+						<phase>package</phase>
+						<configuration>
+							<fileset>
+								<!-- note how the archive is treated as a normal file directory -->
+								<directory>${project.basedir}/target/nulm.war/WEB-INF/lib/oss-core-fieldEngineer-mt-utility-16.1.jar</directory>
+								<includes>
+									<include>com/ericsson/granite/oss/core/fieldEngineer/service/*WsSkel*.class</include>
+									<include>com/ericsson/granite/oss/core/fieldEngineer/service/advanced/*WsSkel*.class</include>
+								</includes>
+                                <fileMode>0755</fileMode>
+      							<directoryMode>0755</directoryMode>
+							</fileset>
+						</configuration>
+					</execution>
+					<execution>
+						<id>remove-a-file oss-core-inventory-mt-utility-16.2.jar</id>
+						<goals>
+							<goal>remove</goal>
+						</goals>
+						<phase>package</phase>
+						<configuration>
+							<fileset>
+								<!-- note how the archive is treated as a normal file directory -->
+								<directory>${project.basedir}/target/nulm.war/WEB-INF/lib/oss-core-inventory-mt-utility-16.2.jar</directory>
+								<includes>
+									<include>com\ericsson\granite\oss\core\inventory\service\*WsSkel*.class</include>
+									<include>com\ericsson\granite\oss\core\inventory\service\advanced\*WsSkel*.class</include>
+								</includes>
+							</fileset>
+						</configuration>
+					</execution>
+					<execution>
+						<id>remove-a-file oss-core-admin-mt-utility-16.2.jar</id>
+						<goals>
+							<goal>remove</goal>
+						</goals>
+						<phase>package</phase>
+						<configuration>
+							<fileset>
+								<!-- note how the archive is treated as a normal file directory -->
+								<directory>${project.basedir}/target/nulm.war/WEB-INF/lib/oss-core-admin-mt-utility-16.2.jar</directory>
+								<includes>
+									<include>com\ericsson\granite\oss\core\admin\service\*WsSkel*.class</include>
+									<include>com\ericsson\granite\oss\core\admin\service\advanced\*WsSkel*.class</include>
+								</includes>
+							</fileset>
+						</configuration>
+					</execution>					
+					<execution>
+						<id>remove-a-file oss-core-framework-mt-utility-16.2.jar</id>
+						<goals>
+							<goal>remove</goal>
+						</goals>
+						<phase>package</phase>
+						<configuration>
+							<fileset>
+								<!-- note how the archive is treated as a normal file directory -->
+								<directory>${project.basedir}/target/nulm.war/WEB-INF/lib/oss-core-framework-mt-utility-16.2.jar</directory>
+								<includes>
+									<include>com\ericsson\granite\oss\core\framework\service\*WsSkel*.class</include>
+									<include>com\ericsson\granite\oss\core\framework\service\advanced\*WsSkel*.class</include>
+								</includes>
+
+							</fileset>
+						</configuration>
+					</execution>				
+				</executions>
+			</plugin>
+        </plugins>
+    </build>
+ 	<profiles>
+        <profile>
+            <id>WLSIT</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
+            <properties>
+                <TEST_HOST>localhost</TEST_HOST>
+                <TEST_REMOTE>false</TEST_REMOTE>
+            </properties>
+            <build>
+                <defaultGoal>clean verify</defaultGoal>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-failsafe-plugin</artifactId>
+                        <version>2.17</version>
+                        <configuration>
+                            <printSummary>true</printSummary>
+                        </configuration>
+                        <executions>
+                            <execution>
+                                <goals>
+                                    <goal>integration-test</goal>
+                                    <goal>verify</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>  
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
+
+
+</project>
